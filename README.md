@@ -1,4 +1,4 @@
-# Job Application Tracker
+<img width="606" height="452" alt="image" src="https://github.com/user-attachments/assets/dea46e8a-0f10-4058-90fc-9cb1293f6d63" /># Job Application Tracker
 
 ## Project Description
 
@@ -33,6 +33,9 @@ The wireframe below shows the planned dashboard and the main application form. I
 
 ## Wireframe Link
 Figma - https://www.figma.com/design/RZjgsdLLTHlxAmMKX9Oshq/Untitled?node-id=0-1&t=9bvO0QwvJHQtfnTd-1
+<img width="606" height="450" alt="image" src="https://github.com/user-attachments/assets/0dd9ab48-442b-4de7-ad40-1e6fc2903a48" />
+<img width="606" height="452" alt="image" src="https://github.com/user-attachments/assets/45ebe990-c7f0-4eab-be35-ecda5014e68a" />
+
 
 The main navigation will provide access to the dashboard and the full application list. From the application list, users can open an application to view or edit its details. A form will be used to add a new application or update an existing one. Interview and follow-up information will be available from the relevant application details.
 
