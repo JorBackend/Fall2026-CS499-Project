@@ -1,5 +1,53 @@
 # Job Application Tracker
 
+## Live Prototype URL
+
+https://jorbackend.github.io/Fall2026-CS499-Project/
+
+## Setup & Run Instructions
+
+The React app is in the `application-tracker` folder.
+
+```bash
+cd application-tracker
+npm install
+npm run dev
+```
+
+Open http://localhost:5173/Fall2026-CS499-Project/
+
+Vite is configured with `base: '/Fall2026-CS499-Project/'`, so the local dev server uses that same path. Other commands:
+
+```bash
+npm run build     # production build in dist/
+npm run preview   # preview the production build
+npm run deploy    # build and publish dist/ with gh-pages
+```
+
+`npm run deploy` publishes the site to the `gh-pages` branch. GitHub Pages should use that branch at the root path.
+
+## Component Overview & Mock Data
+
+The interface is a set of functional components under `application-tracker/src/components`. `App.jsx` owns the mock data and the current view.
+
+- **Navbar** switches between Dashboard, Applications, Calendar, and Settings.
+- **Dashboard** shows totals, the newest applications, and the next interviews or follow-ups.
+- **ApplicationsView** searches and filters the full list, and can edit or delete a row.
+- **ApplicationForm** adds or edits a company, role, location, posting URL, employment type, date, status, and notes.
+- **ApplicationDetails** changes status, saves interview notes, schedules a follow-up, and edits or deletes the application.
+- **CalendarView** shows a month grid and an agenda, with upcoming events beside it.
+- **EventForm** and **EventDetail** add events and update their status or notes.
+- **SettingsView** changes the display name, reminder lead time, and whether rejected or withdrawn applications stay visible.
+- **StatCard**, **StatusBadge**, **PageHeader**, and **Modal** are shared pieces used across those screens.
+
+Mock applications and events are built in `application-tracker/src/data/mockData.js`. Dates are relative to the current day, so the dashboard and calendar still show upcoming items.
+
+An application stores `company`, `title`, `location`, `url`, `employmentType`, `dateApplied`, `status`, `notes`, and created/updated timestamps. Status values are Interested, Applied, Interviewing, Offer, Rejected, and Withdrawn.
+
+An event stores the related `applicationId`, `type`, `title`, `date`, `time`, `medium`, `notes`, and `completed`. Types are Interview, Phone screen, Recruiter call, Final round, Follow-up, and Reminder.
+
+Lists are drawn with `.map()`. Search, status chips, dashboard totals, and the calendar all use `.filter()`. Forms, filters, status changes, and deletes update React `useState`. Data lasts for the browser session; a refresh restores the sample set.
+
 ## Project Description
 
 The Job Application Tracker is a web application that helps people organize their job and internship searches in one place. Applying to multiple positions can make it difficult to remember which companies have been contacted, when applications were submitted, what stage each application is in, and when to follow up. This application provides a central place to keep that information organized instead of relying on scattered notes, spreadsheets, or email searches.
@@ -27,14 +75,17 @@ Optional features may include user account registration, email or browser notifi
 
 Potential challenges include designing a database structure that keeps application details and interview records organized, validating user input, handling dates correctly, and keeping dashboard totals consistent when an application changes status. The project is feasible within approximately eight weeks because its main workflows are limited and can be developed incrementally. The initial version will not automatically submit job applications or connect to external job-board services.
 
+Milestone 2 is the interactive front-end prototype above. It does not include a backend or accounts.
+
 ## Initial UI Sketch
 
 The wireframe below shows the planned dashboard and the main application form. It is a preliminary design and may change during development.
 
 ## Wireframe Link
+
 Figma - https://www.figma.com/design/RZjgsdLLTHlxAmMKX9Oshq/Untitled?node-id=0-1&t=9bvO0QwvJHQtfnTd-1
 
-The main navigation will provide access to the dashboard and the full application list. From the application list, users can open an application to view or edit its details. A form will be used to add a new application or update an existing one. Interview and follow-up information will be available from the relevant application details.
+The main navigation provides access to the dashboard, the full application list, the calendar, and settings. From the application list, users can open an application to view or edit its details. A form is used to add a new application or update an existing one. Interview and follow-up information is available from the application details and the calendar.
 
 ## Initial Data Requirements
 
